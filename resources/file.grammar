@@ -1,4 +1,4 @@
-               file = (line <eol>)* line
+               <file> = (line <eol>)* line
                line = token-line | global-comment-line
          token-line = (token <"\t">)* token
               token = humdrum-token | local-comment
