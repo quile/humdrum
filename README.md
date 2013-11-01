@@ -1,13 +1,4 @@
-# humdrum
+humdrum
+=======
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
-
-## License
-
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License, the same as Clojure.
+Experimenting with some thoughts about a 21st century version of the Humdrum toolkit.
