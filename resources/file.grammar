@@ -1,0 +1,8 @@
+               file = (line <eol>)* line
+               line = token-line | global-comment-line
+         token-line = (token <"\t">)* token
+              token = humdrum-token | local-comment
+      humdrum-token = #"[^\t\r\n]+"
+      local-comment = #"![^\t\r\n]*"
+                eol = "\r"? "\n"
+global-comment-line = #"!![^\r\n]*"
