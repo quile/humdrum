@@ -6,7 +6,13 @@
 ;;;-----------------------------------------------------
 (ns humdrum.parser
   (:require [instaparse.core :as insta]
-            [clojure.zip :as zip] :reload))
+            [clojure.zip :as zip] :reload
+            [clojure.string :as string]
+            [clojure.java.io :as io]))
+
+(defn tokenise [reader]
+  (let [lines (line-seq reader)]
+    (map #(string/split % #"\t") lines)))
 
 (def file-parser
   (insta/parser "resources/file.grammar"))
@@ -18,7 +24,8 @@
     (remove #(-> % second first (= :global-comment-line)) tree)))
 
 ;; just some test fun for now
-(def wtc1f02 (slurp "resources/scores/wtc1f02.krn"))
-(def parsed (file-parser wtc1f02))
+(def wtc1f02 (io/reader "resources/scores/wtc1f02.krn"))
+(def parsed (tokenise wtc1f02))
 
+(doall parsed)
 (remove-comments parsed)
